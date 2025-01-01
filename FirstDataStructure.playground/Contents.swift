@@ -54,14 +54,9 @@ class LinkedListTwo {
     var currentNode: Node?
     
     init() {
-        
         head = nil
         currentNode = nil
     }
-    
-    
-
-    
     func addValue(value: Int) {
         
         var newNode = Node(value: value, addressOfNextNode: nil)
@@ -79,13 +74,14 @@ class LinkedListTwo {
     
     func printList() {
         var tempNode = head
-        while tempNode != nil {
-            print("Value: \(tempNode!.value!), AddressOfNextNode: \(tempNode!.addressOfNextNode ?? nil)")
+        while tempNode?.value != nil {
+            print("tempNode Value", tempNode?.value!)
+            if tempNode?.addressOfNextNode != nil {
+                print("tempNode Address", Unmanaged.passUnretained(tempNode!.addressOfNextNode!).toOpaque() )
+            }
             tempNode = tempNode?.addressOfNextNode
         }
     }
-    
-    
 }
 
 var newLL = LinkedListTwo()
