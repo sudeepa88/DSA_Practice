@@ -37,7 +37,6 @@ class LinkedList {
         }
         
     }
-    var l = 5
     var i = 0
     var k = 4
     var j = 1
