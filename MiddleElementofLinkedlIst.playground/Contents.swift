@@ -70,7 +70,6 @@ class LinkedList {
             temporary = temporary?.addressOfNextNode
         }
         
-        
         var middleOfElement: Node?
         var j = 1
         var noOfOperation = 0
@@ -108,16 +107,21 @@ class LinkedList {
                     middleOfElement = middleOfElement?.addressOfNextNode
                 }
             }
-            
-            
-            
         }
-        
-        
-        
         print("Number of nodes are", noOfNodesAre)
-        
     }
+    
+    
+    func middleOfElementTwo() {
+        var tempNode = head
+        var sampleNode = head
+        while tempNode?.addressOfNextNode != nil {
+            sampleNode = sampleNode?.addressOfNextNode
+            tempNode = tempNode?.addressOfNextNode?.addressOfNextNode
+        }
+        print("The Value of middle element is", sampleNode?.value )
+    }
+    
     
     
 }
@@ -128,10 +132,10 @@ var newLL = LinkedList()
 newLL.addValue(value: 3)
 newLL.addValue(value: 5)
 newLL.addValue(value: 7)
-//newLL.addValue(value: 4)
-//newLL.addValue(value: 9)
-//newLL.addValue(value: 1)
-//newLL.addValue(value: 2)
+newLL.addValue(value: 4)
+newLL.addValue(value: 9)
+newLL.addValue(value: 1)
+newLL.addValue(value: 2)
 //newLL.addValue(value: 0)
 
 
@@ -139,4 +143,6 @@ newLL.addValue(value: 7)
 
 newLL.printlist()
 newLL.middleElement()
+
+newLL.middleOfElementTwo()
 
