@@ -38,7 +38,7 @@ func nextGreatestLetter(_ letters: [Character], _ target: Character) -> Characte
     }
 
 
-var o = nextGreatestLetter(arr, "j")
+var o = nextGreatestLetter(arr, "a")
 
 print("Hello", o)
 
