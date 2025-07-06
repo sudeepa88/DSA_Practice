@@ -99,3 +99,88 @@ func findMaxiMumRobbery(_ nums:[Int]) -> Int {
 
 var letsGoForRobbery = findMaxiMumRobbery(arr)
 
+
+
+var nums = [2,3,2]
+
+
+func findMaxiMumRobberyTwoAnother(_ nums:[Int]) -> Int {
+    var evenSum = 0
+    var oddSum = 0
+    
+    
+    var evenSumOne = 0
+    var oddSumOne = 0
+    
+    var evenSumTwo = 0
+    var oddSumTwo = 0
+    
+    
+    if nums.count == 1 {
+        return nums[0]
+    } else {
+        
+        
+        for i in 0...nums.count - 2 {
+            if i % 2 == 0 {
+                evenSumOne = evenSumOne + nums[i]
+                if oddSumOne > evenSumOne {
+                    evenSumOne = oddSumOne
+                }
+            } else {
+                oddSumOne = oddSumOne + nums[i]
+                if evenSumOne > oddSumOne {
+                    oddSumOne = evenSumOne
+                }
+            }
+        }
+        
+        
+        for i in 1...nums.count - 1 {
+            if i % 2 == 0 {
+                evenSumTwo = evenSumTwo + nums[i]
+                if oddSumTwo > evenSumTwo {
+                    evenSumTwo = oddSumTwo
+                }
+            } else {
+                oddSumTwo = oddSumTwo + nums[i]
+                if evenSumTwo > oddSumTwo {
+                    oddSumTwo = evenSumTwo
+                }
+            }
+        }
+        
+        
+        if evenSumOne > evenSumTwo {
+            evenSum = evenSumOne
+            //return evenSum
+        } else {
+            evenSum = evenSumTwo
+            //return oddSum
+        }
+        
+        
+        
+        if oddSumOne > oddSumTwo {
+            oddSum = oddSumOne
+        } else {
+            oddSum = oddSumTwo
+        }
+        
+        
+        if evenSum > oddSum {
+            return evenSum
+        } else {
+            return oddSum
+        }
+        
+        
+    }
+    
+}
+
+
+
+
+var maximumRobber = findMaxiMumRobberyTwoAnother(nums)
+
