@@ -133,9 +133,81 @@ func twoLinkedList(_ list1:ListNode?, _ list2:ListNode?) -> ListNode? {
 
 
 
-twoLinkedList(newLLOne.head, newLLTwo.head)
+//twoLinkedList(newLLOne.head, newLLTwo.head)
 
 
+
+func isPalindrome(_ head: ListNode?) -> Bool {
+    guard let head else {
+        return false
+    }
+    
+    var start:ListNode? = head
+    var tempArr:[Int] = []
+    //start = head
+    while start != nil {
+        tempArr.append(start!.val)
+        start = start?.next
+    }
+    
+    start = head
+    
+    while start != nil {
+        var value = tempArr.removeLast()
+        if value != start?.val {
+            return false
+        }
+        start = start?.next
+    }
+    
+    
+        return true
+    }
+
+
+print("............................")
+
+var linkedListOne = ListNode(val: 1, next: nil)
+var linkedListTwo = ListNode(val: 2, next: linkedListOne)
+var linkedListThree = ListNode(val: 3, next: linkedListTwo)
+var linkedListFour = ListNode(val: 4, next: linkedListThree)
+var linkedListFive = ListNode(val: 5, next: linkedListFour)
+var linkedListSix = ListNode(val: 6, next: linkedListFive)
+
+//isPalindrome(linkedListTwo)
+
+
+
+func middleNode(_ head: ListNode?) -> ListNode? {
+    var tempNode = head
+    var middleNode = head
+    var forwardNode = head
+    
+    while tempNode != nil {
+         
+        if forwardNode == nil {
+            break
+        }
+        
+
+        middleNode = tempNode
+        forwardNode = forwardNode?.next?.next
+        tempNode = tempNode?.next
+        
+        
+    }
+    
+    print("The Middle Node is ", middleNode?.val)
+    return middleNode
+    
+}
+
+
+
+
+
+
+middleNode(linkedListSix)
 
 
 
