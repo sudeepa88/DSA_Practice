@@ -12,6 +12,8 @@ class Node {
     }
 }
 
+
+
 class linkedlist {
     var head: Node?
     var currentNode: Node?
@@ -37,6 +39,8 @@ class linkedlist {
         
     }
     
+    
+    
     func printlist() {
         var tempNode = head
         while tempNode?.value != nil {
@@ -45,66 +49,32 @@ class linkedlist {
         }
     }
     
-    // reverse
-    
-    func reverse() {
+
+    func reverseAgain() {
         var tempNode = head
-        var previousNode = head
-        var currentNodex = head
-        var newNode = head
+        var previousNode = Node(value: nil, addressOfNextNode: nil)
         
         
         while tempNode?.value != nil {
+           // print("nodes value", tempNode?.value)
+            var nextNode = tempNode?.addressOfNextNode //(2,next)
             
-            newNode?.addressOfNextNode = tempNode
-            currentNodex?.value = tempNode?.value
-            currentNodex?.addressOfNextNode = newNode
-            newNode = currentNodex
+            tempNode?.addressOfNextNode = previousNode //(nil,)
+            previousNode = tempNode! //(1, nil)
+            tempNode = nextNode
             
-            
-            tempNode = tempNode?.addressOfNextNode
         }
         
-        
-        // printing reverse
-        while currentNodex?.value != nil {
-            print("Currnt value", currentNodex?.value)
-            currentNodex = currentNodex?.addressOfNextNode
-        }
-        
+        head = previousNode
     }
-    
-//    func reverseOne() {
-//        var previousNode: Node? = nil
-//            var currentNode = head
-//            var nextNode: Node? = nil
-//            
-//            while currentNode != nil {
-//                nextNode = currentNode?.addressOfNextNode // Store the next node
-//                currentNode?.addressOfNextNode = previousNode // Reverse the link
-//                previousNode = currentNode // Move `previousNode` forward
-//                currentNode = nextNode // Move `currentNode` forward
-//            }
-//            
-//            head = previousNode // Update the head to the new start of the list
-//            
-//            // Print the reversed list
-//            print("Reversed list:")
-//            var tempNode = head
-//            while tempNode != nil {
-//                print("Node value:", tempNode?.value ?? -1)
-//                tempNode = tempNode?.addressOfNextNode
-//            }
-//    }
-
-    
-    
     
 }
 
 
 
 var newLL = linkedlist()
+var tt = linkedlist()
+
 newLL.addValue(value: 3)
 newLL.addValue(value: 5)
 newLL.addValue(value: 7)
@@ -114,11 +84,14 @@ newLL.addValue(value: 1)
 newLL.addValue(value: 2)
 newLL.addValue(value: 0)
 
+tt = newLL
+
 newLL.printlist()
-newLL.reverse()
-//newLL.printlist()
-
-
+newLL.reverseAgain()
+print("............")
+newLL.printlist()
+print("............")
+tt.printlist()
 
 
 
